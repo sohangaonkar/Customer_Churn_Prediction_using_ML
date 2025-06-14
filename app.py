@@ -25,6 +25,7 @@ gender = 1 if gender == "Male" else 0
 senior = 1 if senior == "Yes" else 0
 partner = 1 if partner == "Yes" else 0
 internet = {"DSL": 0, "Fiber optic": 1, "No": 2}[internet]
+contract = st.selectbox("Contract Type", ["Month-to-month", "One year", "Two year"])
 contract = {"Month-to-month": 0, "One year": 1, "Two year": 2}[contract]
 
 # Feature vector with exactly 8 elements
