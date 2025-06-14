@@ -20,14 +20,16 @@ monthly_charges = st.number_input("Monthly Charges", min_value=0.0, value=70.0)
 total_charges = st.number_input("Total Charges", min_value=0.0, value=1500.0)
 internet = st.selectbox("Internet Service", ["DSL", "Fiber optic", "No"])
 
-# Encode inputs manually (example — match your preprocessing)
+# Select and encode inputs
 gender = 1 if gender == "Male" else 0
 senior = 1 if senior == "Yes" else 0
 partner = 1 if partner == "Yes" else 0
 internet = {"DSL": 0, "Fiber optic": 1, "No": 2}[internet]
+contract = {"Month-to-month": 0, "One year": 1, "Two year": 2}[contract]
 
-# Construct input array
-input_data = np.array([[gender, senior, partner, tenure, monthly_charges, total_charges, internet]])
+# Feature vector with exactly 8 elements
+input_data = np.array([[gender, senior, partner, tenure, monthly_charges, total_charges, internet, contract]])
+
 
 # Scale input
 scaled_input = scaler.transform(input_data)
